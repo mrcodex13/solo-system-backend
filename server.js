@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+const cors = require("cors");
 const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
@@ -14,11 +14,13 @@ const app = express();
 ---------------------------- */
 app.use(cors({
   origin: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
 // Handle preflight requests
-app.options('*', cors());
+app.options("*", cors());
 
 /* ---------------------------
    Middleware
