@@ -13,9 +13,7 @@ const app = express();
    CORS Configuration
 ---------------------------- */
 app.use(cors({
-  origin: "https://solo-system-frontend.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: true,
   credentials: true
 }));
 
