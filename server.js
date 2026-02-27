@@ -12,16 +12,18 @@ const app = express();
 /* ---------------------------
    CORS Configuration
 ---------------------------- */
-app.use(cors({
-  origin: true,
+const corsOptions = {
+  origin: function (origin, callback) {
+    callback(null, true); // allow all origins dynamically
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
-}));
+};
 
 // Handle preflight requests
-app.options("*", cors());
-
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 /* ---------------------------
    Middleware
 ---------------------------- */
