@@ -10,6 +10,7 @@ const questSchema = new mongoose.Schema({
   done: { type: Boolean, default: false },
   isPenalty: { type: Boolean, default: false },
   mult: Number,
+  reminderTime: { type: String, default: '' },
 }, { _id: false });
 
 const hunterSchema = new mongoose.Schema({
@@ -20,6 +21,7 @@ const hunterSchema = new mongoose.Schema({
   xpMax: { type: Number, default: 1000 },
   sp: { type: Number, default: 0 },
   cutoff: { type: String, default: '22:00' },
+  phone: { type: String, default: '' },
   stats: {
     type: Object,
     default: {
